@@ -395,6 +395,365 @@ def analyze_data(spec_df, ref_df, manual_entries):
     sheet['G146'] = outputs_connector_pl
     sheet['G147'] = 1
 
-    sheet = workbook['G25 Подготовка ПП к монтажу']
+    sheet = workbook['25 Подготовка ПП к монтажу']
     sheet['F5'] = 1
     sheet['F10'] = 1
+    sheet['F11'] = 1
+    sheet['F13'] = 1
+    sheet['F14'] = 1
+    sheet['F15'] = 1
+    sheet['F16'] = 1
+    sheet['F17'] = 1
+    sheet['F18'] = 1
+    sheet['F19'] = 1
+    sheet['F20'] = 1
+    sheet['F21'] = 1
+
+    sheet = workbook['40 Установка и пайка ПМИ']
+    sheet['F6'] = 1
+    sheet['F7'] = 1
+    sheet['F9'] = 1
+    sheet['F10'] = 1
+    sheet['F12'] = 1
+    sheet['F13'] = 1
+    sheet['F14'] = 1
+    sheet['F15'] = pmi_count
+    sheet['F16'] = pmi_count
+    sheet['F17'] = pmi_outputs_count
+    sheet['F18'] = pmi_count
+    sheet['F19'] = pmi_count
+    sheet['F21'] = pmi_count
+    sheet['F22'] = pmi_count
+    sheet['F25'] = 1
+    sheet['F26'] = 1
+    sheet['F27'] = 1
+    sheet['F28'] = 1
+    sheet['F29'] = 1
+    sheet['F30'] = 1
+    sheet['F31'] = 1
+    sheet['F32'] = pmi_count
+    sheet['F33'] = pmi_outputs_count
+    sheet['F37'] = pmi_outputs_count / 100 * 10
+    sheet['F38'] = 1
+    sheet['F42'] = 1
+    sheet['F47'] = pmi_outputs_count
+    sheet['F48'] = 1
+
+    sheet = workbook['50 Сборочно-монтажная 1']
+    #УСТАНОВКА ЭРЭ С ШТЫРЬКОВЫМИ ВЫВОДАМИ
+    sheet['G6'] = 1
+    sheet['G8'] = pin_element_count - microchips_with_pin_outputs
+    sheet['G9'] = pin_outputs - microchips_pin_outputs
+    sheet['G10'] = pin_element_count - microchips_with_pin_outputs
+    sheet['G11'] = pin_element_count - microchips_with_pin_outputs
+    sheet['G12'] = pin_element_count - microchips_with_pin_outputs
+    if sheet['G8'] is not None:
+        sheet['G16'] = 1
+    sheet['G19'] = pin_outputs - microchips_pin_outputs
+    sheet['G20'] = pin_outputs - microchips_pin_outputs
+    sheet['G22'] = pin_element_count - microchips_with_pin_outputs
+    sheet['G23'] = pin_outputs - microchips_pin_outputs
+    #УСТАНОВКА ЭРЭ В КОРПУСАХ С ПЛАНАРНЫМИ ВЫВОДАМИ
+    sheet['G25'] = planar_element_count - microchips_with_planar_outputs
+    #sheet['G26'] = planar_element_count - microchips_with_planar_outputs
+    sheet['G27'] = planar_element_count - microchips_with_planar_outputs
+    if sheet ['G25'] is not None:
+        sheet['G30'] = 1
+    sheet['G33'] = planar_outputs - microchips_planar_outputs
+    #sheet['G34'] =
+    sheet['G35'] = planar_element_count - microchips_with_planar_outputs
+    sheet['G36'] = planar_element_count - microchips_with_planar_outputs
+    sheet['G37'] = planar_outputs - microchips_planar_outputs
+    #УСТАНОВКА МИКРОСХЕМ С ПЛАНАРНЫМИ ВЫВОДАМИ
+    sheet['G39'] = microchips_with_planar_outputs
+    sheet['G40'] = microchips_with_planar_outputs
+    if sheet['G39'] is not None:
+        sheet['G41'] = 1
+    sheet['G42'] = microchips_with_planar_outputs
+    sheet['G43'] = microchips_with_planar_outputs
+    if sheet ['G39'] is not None:
+        sheet['G45'] = 1
+        sheet['G46'] = 1
+    sheet['G50'] = microchips_with_planar_outputs
+    sheet['G51'] = microchips_planar_outputs
+    if sheet['G39'] is not None:
+        sheet['G52'] = 1
+    sheet['G54'] = microchips_with_planar_outputs
+    sheet['G55'] = microchips_planar_outputs
+    #УСТАНОВКА МИКРОСХЕМ С ШТЫРЬКОВЫМИ ВЫВОДАМИ
+    sheet['G57'] = microchips_with_pin_outputs
+    sheet['G58'] = microchips_pin_outputs
+    sheet['G59'] = microchips_with_pin_outputs
+    #sheet['G60'] = microchips_pin_outputs
+    sheet['G61'] = microchips_pin_outputs
+    sheet['G62'] = microchips_pin_outputs
+    sheet['G63'] = microchips_with_pin_outputs
+    sheet['G64'] = microchips_pin_outputs
+    #УСТАНОВКА ОБЪЕМНЫХ ПЕРЕМЫЧЕК
+    #sheet['G67'] =
+    #sheet['G69'] =
+    #sheet['G71'] =
+    if sheet['G67'] is not None:
+        sheet['G72'] = 1
+    #sheet['G73'] =
+    #sheet['G74'] =
+    #sheet['G75'] =
+    if sheet['G39'] is not None:
+        sheet['G76'] = 1
+    #sheet['G79'] =
+    #sheet['G80'] =
+    #УСТАНОВКА ЖГУТОВ
+    #sheet['G105'] =
+    #sheet['G106'] =
+    #sheet['G107'] =
+    #sheet['G108'] =
+    #sheet['G109'] =
+    #sheet['G110'] =
+    #sheet['G111'] =
+    #sheet['G112'] =
+    #УСТАНОВКА ДРОССЕЛЕЙ
+    #sheet['G114'] =
+    if sheet['G114'] is not None:
+        sheet['G115'] = 1
+    #sheet['G116'] =
+    #sheet['G117'] =
+    if sheet['G114'] is not None:
+        sheet['G119'] = 1
+    #sheet['G122'] =
+    #sheet['G124'] =
+    #sheet['G125'] =
+    if sheet['G114'] is not None:
+        sheet['G132'] = 1
+    #sheet['G135'] =
+    #sheet['G136'] =
+    #sheet['G137'] =
+    if sheet['G114'] is not None:
+        sheet['G135'] = 1
+    #sheet['G139'] =
+
+    sheet = workbook['55 Удаление остатков флюса']
+    sheet['F5'] = 1
+    sheet['F14'] = total_outputs - pmi_outputs_count
+    sheet['F15'] = (total_outputs - pmi_outputs_count) / 100 * 5
+    sheet['F16'] = (total_outputs - pmi_outputs_count) / 100 * 5
+    sheet['F18'] = (total_outputs - pmi_outputs_count) / 100 * 5
+    sheet['F19'] = 1
+    sheet['F20'] = 1
+
+    sheet - workbook['65 Проверка эл. параметров']
+    if total_microchips_outputs == 0:
+        sheet['F6'] = 1
+
+    if total_microships_outputs > 0 and total_microchips_outputs < 29:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 29:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 29 and total_microchips_outputs < 59:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 59:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 59 and total_microchips_outputs < 88:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 88:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 88 and total_microchips_outputs < 118:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 118:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 118 and total_microchips_outputs < 147:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 147:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 147 and total_microchips_outputs < 176:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 176:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 176 and total_microchips_outputs < 206:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 206:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 206 and total_microchips_outputs < 235:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 235:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 235 and total_microchips_outputs < 265:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 265:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 265 and total_microchips_outputs < 293:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 293:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 293 and total_microchips_outputs < 553:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 553:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 553 and total_microchips_outputs < 812:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 812:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 812 and total_microchips_outputs < 1070:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 1070:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 1070 and total_microchips_outputs < 1330:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 1330:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 1330 and total_microchips_outputs < 1589:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 1589:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 1589 and total_microchips_outputs < 1848:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 1848:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 1848 and total_microchips_outputs < 2107:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 2107:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 2107 and total_microchips_outputs < 2366:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 2366:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 2366 and total_microchips_outputs < 2625:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 2625:
+        sheet['F7'] = 1
+
+    if total_microships_outputs > 2625 and total_microchips_outputs < 2884:
+        sheet['F6'] = 0.5
+        sheet['F7'] = 0.5
+    elif total_microchips_outputs == 2884:
+        sheet['F7'] = 1
+
+    workbook.save(ttp_file_path)
+
+#**************************************************************************************
+
+    return results
+
+#анализ данных из файлов
+def run_analysis():
+    spec_path = filedialog.askopenfilemname(title="Выберите файл", filetypes=[("Excel files", ".xlsx")])
+
+    ref_path = filedialog.askopenfilename(title="Выберите файл справочника", filetypes=[("Excel files", ".xslx")])
+
+    spec_df = pd.read_excel(spec_path).dropna(subset=['Designator'])
+
+    ref_df = pd.read_excel(ref_path)
+
+    required_columns_ref = ['LibRef', 'количество выводов', 'тип выводов', 'формовка', 'лужение', 'приклеивание прокладки', 'приклеивание к плате', 'микросхема', 'соединитель']
+
+    for col in required_columns_ref:
+        if col not in ref_df.columns:
+            raise ValueError(f"Отсутствует необходимый столбец '{col}' в файле справочника.")
+
+    #отладочная информация загруженных данных
+    print("Загруженные данные:")
+    print("Спецификация:")
+    print(spec_df)
+    print("Справочник:")
+    print(ref_df)
+
+    manual_entries = []
+    for entry in manual_entry_list.get(0, tk.END):
+        designation, count_str = entry.split(',')
+        manual_entries.append{(designation.strip(), int(count_str.strip()))}
+
+    results = analyze_data(spec_df, ref_df, manual_entries)
+
+    result_text.delete(1.0, tk.END)
+    for line in results:
+        result_text.insert(tk.END, line + "\n")
+
+def delete_selected():
+    selected_indies = manual_entry_list.curselection()
+    for index in reversed(selected_indies):
+        manual_entry_list.delete(index)
+
+#создание основоного окна приложения
+root = tk.Tk()
+
+results_listbox = tk.Listbox(root)
+results_listbox.pack()
+
+def delete_selected():
+    selected_indies = manual_entry_list.curselection()
+    for index in reversed(selected_indies):
+        manual_entry_list.delete(index)
+
+def delete_selected_results():
+    selected_indices = results_listbox.curselection()
+    for index in reversed(selected_indies):
+        results_listbox.delete(index)
+
+frame = tk.Frame(root)
+frame.pack()
+
+result_text = tk.Text(frame, wrap=tk.WORD)
+result_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+scrollbar = tk.Scrollbar(frame, command=result_text.yview)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+result_text.config(yscrollcommand=scrollbar.set)
+
+manual_entry_label = tk.Label(root, text="Введдимте шифр и количество элементов:")
+manual_entry_label.pack()
+
+entry_field = tk.Entry(root)
+entry_field.pack()
+
+add_button = tk.Button(root, text="Добавить", command=lambda: manual_entry_list.insert(tk.END, entry_field.get()))
+add_button.pack()
+
+delete_button = tk.Button(root, text="Удалить выбранное", command=delete_selected)
+delete_button.pack()
+
+sample_results = []
+for res in sample_results:
+    results_listbox.insert(tk.END, res)
+
+#запуск анализа
+run_analysis_button = tk.Button(root, text="Запустить анализ", command=run_analysis)
+ruin_analysis_button.pack()
+
+root.mainloop()
